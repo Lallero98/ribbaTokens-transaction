@@ -36,6 +36,13 @@ ul {
   overflow: hidden;
   text-align: left;
 }
+a {
+  color: green;
+}
+
+a:hover {
+  color: red;
+}
 
 @keyframes App-logo-spin {
   from {

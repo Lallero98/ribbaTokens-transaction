@@ -19,18 +19,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <h2>Controlla il tuo saldo!</h2>
-          <p>Inserisci il tuo indirizzo o quello dei tuoi amici</p>
+          <h2>Check your balance!</h2>
+          <p>Enter your wallet address</p>
           <GetBalance/>
           <WalletConnection />
-          <h3>Controlla le informazioni sui ribbaTokens!</h3>
+          <h3>Check out the info on ribbaTokens!</h3>
           <GetGeneralInfo/>
-          <h3>Controlla quanti ribbaTokens hai!</h3>
+          <h3>Check how many ribbaTokens you have!</h3>
           <GetRibbaBalance/>
           {/*<h3>Check your Ribba allowance!</h3>-->*/}
           {/*<CheckRibbaAllowance/>*/}
           {/*<Counter/>*/}
-          <h3>Ottieni dei ribbaToken GRATIS!</h3>
+          <h3>Get ribbaTokens for FREE!</h3>
           <ExchangeRibbaToken/>
       </header>
     </div>

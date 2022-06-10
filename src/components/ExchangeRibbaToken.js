@@ -163,7 +163,8 @@ export default function ExchangeRibbaToken(){
                     {/*<TextField onChange={amount => setAmount(amount.target.value)}/>*/}
                 </Grid>
             </form>
-            <p>{txHash ? <span>The ribbatokens are on their way, if you want to follow the transaction this is its hash code: <br/>{txHash}</span> : console.log("È andato tutto bene?")}</p>
+            <p>{txHash ? <span>The ribbatokens are on their way you can follow <a href={"https://ropsten.etherscan.io/tx/"+txHash}>this link</a></span> : console.log("È andato tutto bene?")}</p>
+            {/*<p>{txHash ? <span>The ribbatokens are on their way, if you want to follow the transaction this is its hash code: <br/>{txHash}</span> : console.log("È andato tutto bene?")}</p>*/}
         </div>
     )
 }

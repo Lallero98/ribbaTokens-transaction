@@ -93,10 +93,10 @@ function WalletConnection() {
         checkWalletIsConnected();
     }, [])
 
-    let alreadyConnected = <p>Sei già connesso! <br/>il tuo address è {currentAccount}</p>
+    let alreadyConnected = <p>You are connected! <br/>Your address is: {currentAccount}</p>
     return (
         <div className='main-app'>
-            <h4>Connettiti al tuo portafoglio Metamask</h4>
+            <h3>Connect to your Metamask wallet</h3>
             <div>
                 { currentAccount ? alreadyConnected : connectWalletButton() }
             </div>
