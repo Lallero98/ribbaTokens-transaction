@@ -7,19 +7,20 @@ import SendIcon from "@mui/icons-material/Send";
 
 const constant = require("../constant/Constant")
 
+
 export default function GetBalance() {
+
     const { handleSubmit } = useForm();
     const [balance, setBalance] = useState('');
     const [account, setAccount] = useState('');
 
     const getBalance = async () => {
         if(!constant.web3.utils.isAddress(account)){
-            setBalance("L'indirizzo inserito non è valido")
+            setBalance("The address entered is invalid")
         }
         let balance = await constant.web3.eth.getBalance(account);
         balance = constant.web3.utils.fromWei(balance, "ether");
         setBalance(balance);
-        console.log("Sono dentro getBalance");
     }
 
     const form = () => {
@@ -50,7 +51,7 @@ export default function GetBalance() {
                         </Grid>
                     </Grid>
                 </form>
-                <h1>{balance ? balance : console.log("no balance")}</h1>
+                <h1>{balance ? balance : void(0)}</h1>
             </div>
         )
     }

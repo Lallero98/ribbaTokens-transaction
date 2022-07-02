@@ -49,7 +49,7 @@ export default function GetRibbaBalance(){
                 </Grid>
                 </Grid>
             </form>
-            <h1>{balance ? balance : console.log("Ribba")}</h1>
+            <h1>{balance ? balance : void(0)}</h1>
         </div>
     )
 }

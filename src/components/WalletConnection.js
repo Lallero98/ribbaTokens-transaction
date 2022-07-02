@@ -7,8 +7,8 @@ function WalletConnection() {
     const [currentAccount, setCurrentAccount] = useState('');
 
     const checkWalletIsConnected = async () => {
-        const {ethereum} = window;                                          //Serve per connettersi con metamask https://docs.metamask.io/guide/ethereum-provider.html#basic-usage
-                                                                            // metamask se installato mette il suo zampino su ogni pagina di chrome e quindi se non c'è etherium allora non è installato
+        const {ethereum} = window;                                          // Need for conntect with metamask https://docs.metamask.io/guide/ethereum-provider.html#basic-usage
+                                                                            // metamask if installed put its hand in each browser page and so if there isn't etherium then metamask is not installed
         if (!ethereum) {
             console.log("Make sure you have Metamask installed!");
             return;
@@ -20,7 +20,6 @@ function WalletConnection() {
 
         if (accounts.length !== 0) {
             const account = accounts[0];
-            console.log("Found an authorized account: ", account);
             setCurrentAccount(account);
         } else {
             console.log("No authorized account found");
@@ -36,40 +35,11 @@ function WalletConnection() {
 
         try {
             const accounts = await ethereum.request({method: 'eth_requestAccounts'});
-            console.log("Found an account! Address: ", accounts[0]);
             setCurrentAccount(accounts[0]);
         } catch (err) {
             console.log(err)
         }
-
     }
-
-    // const mintNftHandler = async () => {
-    //     try {
-    //         const {ethereum} = window;
-    //
-    //         if (ethereum) {
-    //             const provider = new ethers.providers.Web3Provider(ethereum);
-    //             const signer = provider.getSigner();
-    //             const nftContract = new ethers.Contract(contractAddress, abi, signer);
-    //
-    //             console.log("Initialize payment");
-    //             let nftTxn = await nftContract.mintNFTs(1, {value: ethers.utils.parseEther("0.01")});
-    //
-    //             console.log("Mining... please wait");
-    //             await nftTxn.wait();
-    //
-    //             console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
-    //
-    //         } else {
-    //             console.log("Ethereum object does not exist");
-    //         }
-    //
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
-
 
     const connectWalletButton = () => {
         return (
@@ -80,14 +50,6 @@ function WalletConnection() {
             </div>
         )
     }
-
-    // const mintNftButton = () => {
-    //     return (
-    //         <button onClick={mintNftHandler} className='cta-button mint-nft-button'>
-    //             Mint NFT
-    //         </button>
-    //     )
-    // }
 
     useEffect(() => {
         checkWalletIsConnected();
